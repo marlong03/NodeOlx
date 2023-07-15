@@ -59,7 +59,7 @@ app.get('/usuario', (req, res) => {
         console.error('Error al ejecutar la consulta:', err);
         return res.status(500).json({ error: 'Error al obtener los usuarios' });
       }
-      res.json(rows);
+      res.send(rows);
     });
 });
 app.get('/usuario/:id', (req, res) => {
