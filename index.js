@@ -17,11 +17,12 @@ const port = process.env.PORT || 3000;
   }); */
 
   const connection = mysql.createConnection({
-    host: 'containers-us-west-44.railway.app',
-    port: 6180,
-    user: 'root',
-    password: 'O9X9mdQEpjQB3zsBQDXw',
-    database: 'railway'
+    host: 'db4free.net',
+    port: 3306,
+    user: 'marlong03',
+    password: 'Marlong2013',
+    database: 'dbglobal',
+    driver: 'com.mysql.cj.jdbc.Driver'
   });
 
 // Middleware
