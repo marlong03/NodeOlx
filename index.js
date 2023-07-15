@@ -1,7 +1,8 @@
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
-
+const serverless = require('serverless-http')
+const router = express.Router()
 const cors = require('cors');
 
 const app = express();
@@ -45,13 +46,13 @@ connection.connect((err) => {
     console.log('Conexión exitosa a la base de datos');
   });
 // Rutas
-app.get('/usuario', (req, res) => {
+router.get('/', (req, res) => {
   res.send('API funcionando correctamente srs');
 });
 
 
 //OBTENER DATOS
-app.get('/user', (req, res) => {
+router.get('/usuario', (req, res) => {
     const query = 'SELECT * FROM user';
   
     connection.query(query, (err, rows) => {
@@ -511,6 +512,9 @@ app.put('/articulo/update/:id', (req, res) => {
 
 
 // Escuchar el servidor
+
+app.use('./index.js',router)
+
 app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
 });
