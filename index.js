@@ -51,7 +51,7 @@ app.get('/usuario', (req, res) => {
 
 
 //OBTENER DATOS
-app.get('/', (req, res) => {
+app.get('/user', (req, res) => {
     const query = 'SELECT * FROM user';
   
     connection.query(query, (err, rows) => {
