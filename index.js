@@ -45,13 +45,13 @@ connection.connect((err) => {
     console.log('Conexión exitosa a la base de datos');
   });
 // Rutas
-app.get('/', (req, res) => {
+app.get('/usuario', (req, res) => {
   res.send('API funcionando correctamente srs');
 });
 
 
 //OBTENER DATOS
-app.get('/usuario', (req, res) => {
+app.get('/', (req, res) => {
     const query = 'SELECT * FROM user';
   
     connection.query(query, (err, rows) => {
