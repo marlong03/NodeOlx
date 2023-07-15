@@ -46,13 +46,13 @@ connection.connect((err) => {
     console.log('Conexión exitosa a la base de datos');
   });
 // Rutas
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('API funcionando correctamente srs');
 });
 
 
 //OBTENER DATOS
-router.get('/usuario', (req, res) => {
+app.get('/usuario', (req, res) => {
     const query = 'SELECT * FROM user';
   
     connection.query(query, (err, rows) => {
@@ -514,6 +514,7 @@ app.put('/articulo/update/:id', (req, res) => {
 // Escuchar el servidor
 
 app.use('./index.js',router)
+module.exports.handler = serverless(app)
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
