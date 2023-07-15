@@ -1,8 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
-const serverless = require('serverless-http')
-const router = express.Router()
 const cors = require('cors');
 
 const app = express();
@@ -513,8 +511,6 @@ app.put('/articulo/update/:id', (req, res) => {
 
 // Escuchar el servidor
 
-app.use('./index.js',router)
-module.exports.handler = serverless(app)
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
